@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  mesh:
+    build:
+      dockerfile: envoy.Dockerfile
+    tty: true
+    ports:
+      - 9901:9901
+      - 15000:15000
+      - 15001:15001
+    environment:
+      AWS_REGION: ap-northeast-1
+      APPMESH_RESOURCE_ARN: arn:aws:appmesh:us-west-2:111122223333:mesh/myMesh/virtualNode/myVirtualNode
